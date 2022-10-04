@@ -5,7 +5,8 @@
 
 
 const express = require("express");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
+const cors = require("cors");
 const { dbConnection } = require("./database/config");
 
 // console.log( process.env );
@@ -16,6 +17,8 @@ const app = express();
 // Base de Datos
 dbConnection();
 
+// CORS
+app.use(cors())
 
 // Directorio Publico
 app.use( express.static("public") );  // use: funcion que se ejectua cuando alguien hace una peticion al servidor
